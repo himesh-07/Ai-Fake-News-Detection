@@ -6,8 +6,8 @@ import os
 app = Flask(__name__)
 CORS(app)
 
-model = pickle.load(open("model.pkl", "rb"))
-vectorizer = pickle.load(open("vectorizer.pkl", "rb"))
+model = pickle.load(open("backend/model.pkl", "rb"))
+vectorizer = pickle.load(open("backend/vectorizer.pkl", "rb"))
 
 @app.route('/')
 def home():
