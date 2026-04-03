@@ -47,7 +47,7 @@ function Home() {
 
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>Fake News Detector</h1>
+      <h1>Fake -News Detector</h1>
       <textarea
         rows="5"
         cols="50"
