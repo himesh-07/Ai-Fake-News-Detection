@@ -5,7 +5,7 @@ function Home() {
   const [result, setResult] = useState("");
 
   const handleSubmit = async () => {
-    const res = await fetch("https://ai-fake-news-detection-g1e5.onrender.com", {
+    const res = await fetch("https://ai-fake-news-detection-g1e5.onrender.com/predict", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
