@@ -6,24 +6,30 @@ import os
 app = Flask(__name__)
 CORS(app)
 
-model = pickle.load(open("Backend/model.pkl", "rb"))
-vectorizer = pickle.load(open("Backend/vectorizer.pkl", "rb"))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+model = pickle.load(open(os.path.join(BASE_DIR, "model.pkl"), "rb"))
+vectorizer = pickle.load(open(os.path.join(BASE_DIR, "vectorizer.pkl"), "rb"))
 
-@app.route('/')
+@app.route("/", methods=["GET"])
 def home():
     return "Fake News API Running 🚀"
 
-@app.route('/predict', methods=['POST'])
+@app.route("/predict", methods=["POST"])
 def predict():
-    text = request.json['text']
-    
-    vec = vectorizer.transform([text])
-    pred = model.predict(vec)[0]
+    try:
+        data = request.get_json()
+        if not data or "text" not in data or not data["text"].strip():
+            return jsonify({"error": "No text provided"}), 400
 
-    result = "Real News" if pred == 1 else "Fake News"
-    
-    return jsonify({"prediction": result})
+        text = data["text"]
+        vec = vectorizer.transform([text])
+        pred = model.predict(vec)[0]
+        result = "Real News" if pred == 1 else "Fake News"
+        return jsonify({"prediction": result})
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
-    app.run(host='https://ai-fake-news-detection-it4c.onrender.com', port=port)
+    app.run(host='0.0.0.0', port=port)
