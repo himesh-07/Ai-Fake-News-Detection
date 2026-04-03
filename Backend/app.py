@@ -9,7 +9,7 @@ CORS(app)
 model = pickle.load(open("Backend/model.pkl", "rb"))
 vectorizer = pickle.load(open("Backend/vectorizer.pkl", "rb"))
 
-@app.route('/')
+@app.route("/", methods=["GET"])
 def home():
     return "Fake News API Running 🚀"
 
