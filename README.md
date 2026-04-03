@@ -1,16 +1,46 @@
-# React + Vite
+This project is an AI-powered Fake News Detection Web Application that classifies news text as:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. Real News
+2. Fake News
 
-Currently, two official plugins are available:
+"It uses Machine Learning (NLP) with a React frontend and Flask backend."
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+ **TECH STACK ARE USED**
+> Frontend
+ 1.React (JSX)
+ 2.Fetch API
+> Backend
+1.Python (Flask)
+2.Flask-CORS
+> Machine Learning
+1.Scikit-learn
+2.TF-IDF Vectorizer
+3.Logistic Regression
 
-## React Compiler
+> Clone the Repository 
+git clone https://github.com/your-username/fake-news.git
+> cd fake-news 
+Backend Setup
+cd backend
+pip install -r requirements.txt
+Train Model
+python train_model.py
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+-> This will generate:
 
-## Expanding the ESLint configuration
+1.model.pkl
+2.vectorizer.pkl
+ > Run Backend
+ 1.python app.py
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+> Server runs on:
+
+ 1.http://127.0.0.1:5000
+> Frontend Setup
+1.cd ../frontend
+2.npm install
+3.npm run dev
+
+-> App runs on:
+
+ 1.http://localhost:5173
