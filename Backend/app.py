@@ -6,8 +6,10 @@ import os
 app = Flask(__name__)
 CORS(app)
 
-model = pickle.load(open("Backend/model.pkl", "rb"))
-vectorizer = pickle.load(open("Backend/vectorizer.pkl", "rb"))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+model = pickle.load(open(os.path.join(BASE_DIR, "model.pkl"), "rb"))
+vectorizer = pickle.load(open(os.path.join(BASE_DIR, "vectorizer.pkl"), "rb"))
 
 @app.route("/", methods=["GET"])
 def home():
@@ -26,4 +28,4 @@ def predict():
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
-     app.run(host='0.0.0.0', port=port)
+    app.run(host='0.0.0.0', port=port)
