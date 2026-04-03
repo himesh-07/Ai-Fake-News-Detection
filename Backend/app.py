@@ -26,4 +26,4 @@ def predict():
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
-    app.run(host='https://ai-fake-news-detection-it4c.onrender.com', port=port)
+    app.run(host='https://ai-fake-news-detection-g1e5.onrender.com', port=port)
