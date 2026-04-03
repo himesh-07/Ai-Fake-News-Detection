@@ -5,7 +5,7 @@ from sklearn.linear_model import LogisticRegression
 import pickle
 
 # Load dataset
-df = pd.read_csv("news.csv")  # columns: text, labelputhon
+df = pd.read_csv("Backend/news.csv")  # columns: text, labelputhon
 
 # Split
 X = df['text']
