@@ -13,9 +13,9 @@ vectorizer = pickle.load(open("Backend/vectorizer.pkl", "rb"))
 def home():
     return "Fake News API Running 🚀"
 
-@app.route('/predict', methods=['POST'])
+@app.route("/predict", methods=["POST"])
 def predict():
-    text = request.json['text']
+    text = request.json["text"]
     
     vec = vectorizer.transform([text])
     pred = model.predict(vec)[0]
